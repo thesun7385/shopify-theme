@@ -15,7 +15,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Update from local !",
+            "heading": "Update from git version control !",
             "heading_size": "h0"
           }
         },
