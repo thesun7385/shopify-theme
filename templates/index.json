@@ -15,8 +15,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Update from from the local store via github",
-            "subheading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "heading": "This is live update",
             "heading_size": "h0"
           }
         },
@@ -32,7 +31,10 @@
           }
         }
       },
-      "block_order": ["heading", "button"],
+      "block_order": [
+        "heading",
+        "button"
+      ],
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -75,5 +77,8 @@
       }
     }
   },
-  "order": ["image_banner", "featured_collection"]
+  "order": [
+    "image_banner",
+    "featured_collection"
+  ]
 }
