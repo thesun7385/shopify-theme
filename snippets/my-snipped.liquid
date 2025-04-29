@@ -1,0 +1,20 @@
+{% comment %}
+  Renders a first word and a second word.
+
+  Accepts:
+  - word:{String} the first word
+  - second_word:{String} the second word
+
+  Usage:
+  {% render 'my-snippet', {word: word_variable, second_word: second_word_variable }%}
+{% endcomment %}
+
+
+<p>The word is {{ word }} and the second word is {{ second_word }}</p>
+
+<!--- Import java script file  --->
+{% comment %} <script src="{{ 'my-snippet-script.js' | asset_url}}" async></script> {% endcomment %}
+
+
+<!--- Import image  --->
+<img src="{{ 'tropical.jpg' | asset_url}}" loading="lazy" width="500" height="500">

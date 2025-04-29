@@ -38,8 +38,9 @@
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
-    {{ content_for_header }}
+    
+    <!--- Render comtemnt header-->
+    {{ content_for_header }} 
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -299,7 +300,13 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-    <p>Hello world from GITHUB</p>
+ 
+    {% comment %} Render tutorial  {% endcomment %}
+    {% comment %} {% render 'my-snipped', {
+    word:'Bro',
+    second_word:'Two two!'
+    } %} {% endcomment %}
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -308,12 +315,15 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
+    <!--- Render header-->
     {% sections 'header-group' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      <!--- Render content body--->
       {{ content_for_layout }}
     </main>
 
+    <!--- Render footer-->
     {% sections 'footer-group' %}
 
     <ul hidden>

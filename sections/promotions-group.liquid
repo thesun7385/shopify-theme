@@ -1,0 +1,95 @@
+<!--- This is a custom template for your client --->
+
+
+<!--- Step1: Define a schema --->
+{% schema %}
+{
+    "name": "Promotions Group",
+    "tag": "section",
+    "class": "my-wrapper-class",
+      // Adding elements to the schema
+    "settings": [
+        {
+            "type": "text",
+            "label": "Title",
+            "id": "title",
+        },
+        {
+            "type": "select",
+            "label": "Title Alignment",
+            "id": "title_alignment",
+            "options":[
+                {
+                    "value": "left",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ],
+            "default": "left"
+        }
+    ],
+    // Adding a new setting to shopify template
+    "presets":[ 
+        {
+            "name": "Promotions Group",
+            "category": "Custom"
+        }
+    ],
+    // Defineing the blocks 
+    "blocks": [
+        {
+            "type": "promotion",
+            "name": "Promotion",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "promotion_title",
+                    "label": "Promotion Title",
+                  
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Promotion Image"
+             
+                },
+                {
+                    "type": "url",
+                    "label": "Promotion URL",
+                    "id": "promotion_url"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
+
+
+<!-------------- Step2: Render the HTML element with styling ------------------------------->
+<h2 style="text-align:{{ section.settings.title_alignment }}">{{ section.settings.title }}</h2>
+
+
+<!--- Loop through block element using access by id-->
+<div style="display: flex; justify-content: center; gap: 20px">
+{% for block in section.blocks %}
+    {% if block.type == "promotion" %}
+      <div class="promotion-block" style="display: flex: flex-direction: column; gap: 10px;">
+        <h3 style="text-align: center">{{ block.settings.promotion_title }}</h3>
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.promotion_title }}"  width="500" height="500">
+        {% endif %}
+  
+        {% if block.settings.promotion_url %}
+          <p><a href="{{ block.settings.promotion_url }}">Learn more</a></p>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
