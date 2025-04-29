@@ -31,7 +31,10 @@
           }
         }
       },
-      "block_order": ["heading", "button"],
+      "block_order": [
+        "heading",
+        "button"
+      ],
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -72,7 +75,41 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "promotions_group_ELfiJx": {
+      "type": "promotions-group",
+      "blocks": {
+        "promotion_JFawcF": {
+          "type": "promotion",
+          "settings": {
+            "promotion_title": "Promo1",
+            "image": "shopify://shop_images/cold-drink-pours-from-a-silver-can-into-a-glass-with-a-green-tint.jpg",
+            "promotion_url": ""
+          }
+        },
+        "promotion_bD66Ww": {
+          "type": "promotion",
+          "settings": {
+            "promotion_title": "Promo2",
+            "image": "shopify://shop_images/bottle-of-milk-with-silver-lid-and-red-striped-straw.jpg",
+            "promotion_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "promotion_JFawcF",
+        "promotion_bD66Ww"
+      ],
+      "name": "Promotions Group",
+      "settings": {
+        "title": "Promotion header",
+        "title_alignment": "center"
+      }
     }
   },
-  "order": ["image_banner", "featured_collection"]
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "promotions_group_ELfiJx"
+  ]
 }
