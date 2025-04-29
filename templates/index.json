@@ -83,7 +83,7 @@
           "type": "promotion",
           "settings": {
             "promotion_title": "Promo1",
-            "image": "shopify://shop_images/cold-drink-pours-from-a-silver-can-into-a-glass-with-a-green-tint.jpg",
+            "image": "shopify://shop_images/beer-pong-points.jpg",
             "promotion_url": ""
           }
         },
@@ -91,7 +91,7 @@
           "type": "promotion",
           "settings": {
             "promotion_title": "Promo2",
-            "image": "shopify://shop_images/bottle-of-milk-with-silver-lid-and-red-striped-straw.jpg",
+            "image": "shopify://shop_images/beer-pouring-from-can-to-glass.jpg",
             "promotion_url": ""
           }
         }

@@ -1,3 +1,4 @@
+// This is the theme settings schema for a Shopify theme.
 [
   {
     "name": "theme_info",
@@ -1449,6 +1450,16 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      }
+    ]
+  },
+  {
+    "name": "Totorial",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Promotion",
+        "id": "promotion_name"
       }
     ]
   }

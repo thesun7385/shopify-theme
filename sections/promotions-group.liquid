@@ -75,6 +75,10 @@
 <!-------------- Step2: Render the HTML element with styling ------------------------------->
 <h2 style="text-align:{{ section.settings.title_alignment }}">{{ section.settings.title }}</h2>
 
+<!--- Conditionally render --->
+{% if settings.promotion_name %}
+    <p> Active promotion: {{ settings.promotion_name}} </p>
+{% endif %}
 
 <!--- Loop through block element using access by id-->
 <div style="display: flex; justify-content: center; gap: 20px">
