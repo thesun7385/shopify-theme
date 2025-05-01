@@ -83,7 +83,6 @@
           "type": "promotion",
           "settings": {
             "promotion_title": "Promo1",
-            "image": "shopify://shop_images/beer-pong-points.jpg",
             "promotion_url": ""
           }
         },
@@ -91,7 +90,6 @@
           "type": "promotion",
           "settings": {
             "promotion_title": "Promo2",
-            "image": "shopify://shop_images/beer-pouring-from-can-to-glass.jpg",
             "promotion_url": ""
           }
         }
@@ -105,11 +103,27 @@
         "title": "Promotion header",
         "title_alignment": "center"
       }
+    },
+    "sections_tutorials_4E734V": {
+      "type": "sections-tutorials",
+      "name": "Sections Tutorial",
+      "settings": {
+        "text_setting": "This is my first setting",
+        "textarea_setting": "",
+        "richtext_setting": "",
+        "inline_richtext_setting": "",
+        "number_setting": 0,
+        "range_setting": 50,
+        "select_setting": "option1",
+        "checkbox_setting": true,
+        "radio_setting": "option1"
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "promotions_group_ELfiJx"
+    "promotions_group_ELfiJx",
+    "sections_tutorials_4E734V"
   ]
 }

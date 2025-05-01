@@ -1,0 +1,385 @@
+<!--- This is a customer section --->
+
+<!--- Key: Concept when you create a new section you can create block as many you want--->
+
+<!--- Define section schema --->
+ {% schema %}
+{
+    "name": "Sections Tutorial",
+    "tag": "section",
+    "class": "section-tutorial",
+    "limit": 2, // Limit the number of sections to 2
+    "settings": [{
+        "type": "text",
+        "id": "text_setting", // id that you will use to access the setting
+        "label": "Theme Setting",
+        "default": "This is my first setting",
+        "info": "This is some helper text",
+        "placeholder": "This is a placeholder",
+    },
+    {
+        "type": "textarea",
+        "id": "textarea_setting", 
+        "label": "Textarea Setting",
+        "placeholder": "This is a placeholder",
+    },
+    {
+        "type": "richtext",
+        "id": "richtext_setting",
+        "label": "Ricetext Setting",
+    },
+    {
+        "type": "inline_richtext",
+        "id": "inline_richtext_setting",
+        "label": "Inline Ricetext Setting",
+    },
+    {
+        "type": "number",
+        "id": "number_setting",
+        "label": "This number setting",
+        "default": 0,
+    },
+    {
+        "type": "range",
+        "id": "range_setting",
+        "label": "This range setting",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 50,
+        "unit": "px",
+    },
+    {
+        "type": "select",
+        "id": "select_setting",
+        "label": "Select Setting",
+        "options": [
+            {
+                "value": "option1",
+                "label": "Option 1",
+           
+            },
+            {
+                "value": "option2",
+                "label": "Option 2",
+          
+            },
+            {
+                "value": "option3",
+                "label": "Option 3",
+          
+            }
+        ],
+        "default": "option1",
+    },
+    {
+        "type": "checkbox",
+        "id": "checkbox_setting",
+        "label": "Checkbox Setting",
+        "default": true,
+        "info": "This is some helper text",
+    },
+    {
+        "type": "radio",
+        "label": "Radio Setting",
+        "id": "radio_setting",
+        "default": "option1",
+        "options": [
+            {
+                "value": "option1",
+                "label": "Option 1",
+            },
+            {
+                "value": "option2",
+                "label": "Option 2",
+            },
+            {
+                "value": "option3",
+                "label": "Option 3",
+            }
+        ],
+        "info": "This is some helper text",
+    },
+    {
+        "type": "color",
+        "id": "color_setting",
+        "label": "Color Setting",
+        "default": "#000000",
+    },
+    {
+        "type": "color_background",
+        "label": "Color Background Setting",
+        "id": "color_background_setting",
+    },
+    { // Note: With image picker you from you schema you clients will be able to upload project as they needed 
+        "type": "image_picker",
+        "label": "Image Picker",
+        "id": "image_picker_setting",
+    },
+    {
+        "type": "video",
+        "label": "Video Setting",
+        "id": "video_setting",
+    },
+    {
+        "type": "video_url",
+        "label": "Video URL Setting",
+        "id": "video_url_setting",
+        "accept": [
+           "youtube", 
+        ],
+        "placeholder": "YouTube URL",
+        "info": "This is some helper text",
+    },
+    {
+    "type": "url",
+    "label": "URL Setting",
+    "id": "url_setting",
+    },
+    {
+        "type": "html",
+        "label": "HTML Setting",
+        "id": "html_setting",
+    },
+    {
+    "type": "liquid",
+    "label": "Liquid Setting",
+    "id": "liquid_setting"
+    },
+    {
+        "type":"product",
+        "label" : "Product Setting",
+        "id": "product_setting",  
+    },
+    {
+        "type":"product_list",
+        "label" : "Product List Setting",
+        "id": "product_list_setting",
+        "limit": 5,
+    },
+    {
+        "type":"collection",
+        "label" : "Collection Setting",
+        "id": "collection_setting",
+      
+    },
+    {
+        "type":"collection_list",
+        "label" : "Collection List Setting",
+        "id": "collection_list_setting",
+        "limit": 5,  
+    },{
+        "type": "page",
+        "label": "Page Setting",
+        "id": "page_setting",
+    },{
+        "type": "blog",
+        "label": "Blog Setting",
+        "id": "blog_setting",
+    },
+    {
+        "type": "article",
+        "label": "Article Setting",
+        "id": "article_setting",
+    },
+    {
+        "type": "link_list",
+        "label": "Link List Setting",
+        "id": "link_list_setting"
+    },
+    {
+        "type": "text_alignment",
+        "id": "text_alignment_setting",
+        "label": "Text Alignment Setting",
+        "default": "center",
+    },
+    {
+        "type": "font_picker",
+        "id": "font_setting",
+        "label": "Font Picker Setting",
+        "default": "mono"
+    }
+
+],
+    "blocks": [],
+    "presets": [{
+        "name": "Sections Tutorial",
+        "settings": {}
+    }],
+}
+ {% endschema %}
+
+
+ <!---------------------- Render HTML element ----------------------->
+ <h2>Text Setting </h2>
+ <p>{{ section.settings.text_setting}}</p>
+ <h2>{{ section.settings.textarea_setting | newline_to_br}}</h2>
+
+  <!--- Best Practice to use Richtext give you flexibility --->
+ <h2>Rich text Setting </h2>
+ <div>{{ section.settings.richtext_setting}}</div>
+
+ <h2>Inline Rich Setting </h2>
+ <div>{{ section.settings.inline_richtext_setting}}</div>
+ 
+
+ <h2>Number setting </h2>
+ <div>{{ section.settings.number_setting}}</div>
+
+ <h2>Range Setting </h2>
+ <div>{{ section.settings.range_setting}}</div>
+
+ <h2>Option Setting</h2>
+<div>{{ section.settings.select_setting}}</div>
+
+<h2>Checkbox Setting</h2>
+{% if section.settings.checkbox_setting == true %}
+
+<p>Checkbox is checked</p>
+{% else %}
+<p>Checkbox is not checked</p>
+{% endif %}
+
+<h2>Radio Setting</h2>
+<div>{{ section.settings.radio_setting}}</div>
+
+
+
+ <!--- Color wil give you just basic colors while color_background give you a gradient background   --->
+<h2>Color Setting</h2>
+<div style="color: {{ section.settings.color_setting }}">
+  {{ section.settings.color_setting }} - Lightness: {{ section.settings.color_setting.lightness }}
+</div>
+<div style="background: {{ section.settings.color_background_setting }}">
+    <h2>Color Background Setting</h2>
+  <p>{{ section.settings.color_background_setting }}</p>
+</div>
+
+
+<!--- Note: With image picker you from you schema you clients will be able to upload project as they needed --->
+<!--- Render the image --->
+{% if section.settings.image_picker_setting %}
+    {{ section.settings.image_picker_setting 
+        | image_url: width: 400 
+        | image_tag: style: " height: 200px; object-fit: cover;" }}
+{% endif %}
+
+
+<!--- Render the video from the schema  --->
+{% if section.settings.video_setting %}
+   
+        <h2>Video Setting</h2>
+        <div style="width: 500px; height: 500px; overflow: hidden;">
+          {{ section.settings.video_setting 
+              | video_tag: 
+                  controls: false, 
+                  autoplay: true, 
+                  loop: true, 
+                  muted: true, 
+                  images_size: "large",
+                    style: "width: 100%; height: 100%; object-fit: cover;"
+                   }}
+        </div>
+{% endif %}
+
+
+<!--- Render the Video URL  --->
+<div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  
+    <iframe 
+      src="https://www.youtube.com/embed/{{ section.settings.video_url_setting.id }}" 
+      title="YouTube video player"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!--- Render the URL  --->
+  <h2>Video URL Setting</h2>
+  <a href="{{ section.settings.url_setting }}" target="_blank"> URL Setting here</a>
+
+
+    <!--- Custom HTML  --->
+    <div>
+        <h2>Custom HTML</h2>
+        <div>{{ section.settings.html_setting }}</div>
+    </div>
+
+    <!--- Custom Liquid  --->
+    <div>
+        <h2>Custom Liquid</h2>
+        <div>{{ section.settings.liquid_setting }}</div>
+    </div>
+
+    <!--- Display product property in the product object  --->
+    <h2>Product Setting</h2>
+    <p> {{ section.settings.product_setting }} |{{ section.settings.product_setting.title }} 
+        | {{ section.settings.product_setting.price | money }}</p>
+  
+
+    <!--- Display product list property in the product object  --->
+    <h2>Product List Setting</h2>
+    {% for product in section.settings.product_list_setting %}
+        <p>{{ product.title }}</p>
+        <p>{{ product.price | money }}</p>
+        <p>{{ product.available }}</p>
+    {% endfor %}
+
+     <!--- Display  collection --->
+    <h2>Collection Setting</h2>
+    {% if section.settings.collection_setting %}
+        <p>{{ section.settings.collection_setting.title }}</p>
+        <p>{{ section.settings.collection_setting.handle }}</p>
+        <p>{{ section.settings.collection_setting.products_count }}</p>
+    {% endif %}
+
+    <!--- Display collection list --->
+    <h2>Collection List Setting</h2>
+    {% for collection in section.settings.collection_list_setting %}
+        <p>{{ collection.title }}</p>
+        <p>{{ collection.handle }}</p>
+        <p>{{ collection.products_count }}</p>
+    {% endfor %}
+
+    <!--- Page setting --->
+    <h2>Page Setting</h2>
+    <p>{{ section.settings.page_setting.title }}</p>
+
+    <!--- Blog setting --->
+    <h2>Blog Setting</h2>
+    <p>{{ section.settings.blog_setting.title }}</p>
+
+    <!--- Article setting --->
+    <h2>Article Setting</h2>
+    <p>{{ section.settings.article_setting.title }}</p>
+
+    <!--- Link list setting --->
+    <h2>Link List Setting</h2>
+    {% for link in section.settings.link_list_setting.links %}
+        <p>{{ link.title }}</p>
+        <p>{{ link.url }}</p>
+    {% endfor %}
+
+
+    <!--- Test alignment setting --->
+    <h2>Text Alignment Setting</h2>
+    <div style="text-align: {{ section.settings.text_alignment_setting }}">
+        <p>This text is aligned according to the setting.</p>
+    </div>
+
+  
+  <!--- Font picker setting --->
+<h2>Font Picker Setting</h2>
+<p>Font setting: {{ section.settings.font_setting.family }}</p>
+
+<style>
+   
+    {{ section.settings.font_setting | font_face: font_display: "swap" }}
+    
+    .section-tutorial * {
+      font-family: {{ section.settings.font_setting.family }};
+    }
+  </style>
