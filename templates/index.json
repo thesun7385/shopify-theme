@@ -107,9 +107,24 @@
             "product_block_setting": "singh-beer",
             "title": "My Beer"
           }
+        },
+        "section_collection_93LMWF": {
+          "type": "section_collection",
+          "settings": {
+            "collection_block_setting": "frontpage",
+            "title": "My Spacial collection",
+            "image": "shopify://shop_images/wooden-table-with-a-scale-and-pour-over-coffee.jpg"
+          }
         }
       },
+<<<<<<< HEAD
       "block_order": ["section_product_3r8mkR"],
+=======
+      "block_order": [
+        "section_product_3r8mkR",
+        "section_collection_93LMWF"
+      ],
+>>>>>>> a15f544bcfac3b42fe85adda134848882b2aa2d8
       "name": "Sections Tutorial",
       "settings": {
         "text_setting": "This is my first setting",
