@@ -8,7 +8,18 @@
   "market": [],
   "order": [],
   "page": [],
-  "product": [],
+  "product": [
+    {
+      "key": "beer-style",
+      "namespace": "shopify",
+      "name": "Beer style",
+      "description": "Helps categorize beers by their distinct characteristics, e.g. bitter, cloudy",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    }
+  ],
   "variant": [],
   "shop": []
 }

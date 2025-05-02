@@ -9,6 +9,8 @@
     "tag": "section",
     "class": "section-tutorial",
     "limit": 2, // Limit the number of sections to 2
+    // Disable this section on collection template
+   
     "settings": [{
         "type": "text",
         "id": "text_setting", // id that you will use to access the setting
@@ -197,20 +199,93 @@
         "type": "font_picker",
         "id": "font_setting",
         "label": "Font Picker Setting",
-        "default": "mono"
-    }
+        "default": "sans-serif",
+    },
+    {
+        "type": "header",
+        "content": "Site Resources Settings", 
+        "info": "Settings related to shopify resources. [Learn more](https://shopify.com)",
+    },
 
 ],
-    "blocks": [],
+    // In section you can can add muliple blocks
+    "blocks": [
+        {
+            // Product block object
+            "type": "section_product",
+            "name": "Product",
+            "settings": [
+                {
+                    "type": "product",
+                    "label": "Product",
+                    "id": "product_block_setting",
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "info": "Optional. Will override the product title.",
+                },
+                {
+                    "type": "image_picker",
+                    "label": "Image",
+                    "id": "image",
+                    "info": "Optional. Will override the product image.",
+                }
+            ],
+            "limit": 4
+        },
+        {
+            // Collection block object
+            "type": "section_collection",
+            "name": "Collection",
+            "settings": [
+                {
+                    "type": "collection",
+                    "label": "Collection",
+                    "id": "collection_block_setting",
+              
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "info": "Optional. Will override the Collection's title.",
+                },
+                {
+                    "type": "image_picker",
+                    "label": "Image",
+                    "id": "image",
+                    "info": "Optional. Will override the Collection's image.",
+                }
+            ],
+            "limit": 4
+        }
+    ],
     "presets": [{
-        "name": "Sections Tutorial",
-        "settings": {}
+        "name": "Sections Tutorial with product",
+        "blocks": [
+            {
+                "type": "section_product",
+                "settings": {
+                   
+            }  
+        }       
+        ]
+    },
+    {
+        "name": "Sections Tutorial with collection",
+    },
+    {
+        "name": "Sections Tutorial Mixed",
     }],
 }
  {% endschema %}
 
 
  <!---------------------- Render HTML element ----------------------->
+ <p> {{ section.index }}</p>
+ <p> {{ section.id}}</p>
  <h2>Text Setting </h2>
  <p>{{ section.settings.text_setting}}</p>
  <h2>{{ section.settings.textarea_setting | newline_to_br}}</h2>
@@ -383,3 +458,27 @@
       font-family: {{ section.settings.font_setting.family }};
     }
   </style>
+
+
+
+<!-- Valicate block and render product-->
+{% for block in section.blocks %}
+    {% case block.type %}
+      {% when "section_collection" %}
+        {% assign title = block.settings.title | default: block.settings.collection.title %}
+        {% assign image = block.settings.image | default: block.settings.collection.image %}
+      {% when "section_product" %}
+        {% assign title = block.settings.title | default: block.settings.product.title %}
+        {% assign image = block.settings.image | default: block.settings.product.image %}
+    {% endcase %}
+  
+    <!--- Render product or collection title with shopify attributes properties --->
+    <div {{ block.shopify_attributes }}>
+        {% if image %}
+            {{ image | image_url: width: 400 | image_tag: style: "height: 200px; object-fit: cover;" }}
+          {% endif %}
+        <h2>{{ title }}</h2>
+    </div>
+      
+   
+  {% endfor %}
