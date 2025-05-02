@@ -1,0 +1,16 @@
+.section-tutorial {
+  background: beige;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-tutorial_internal h2 {
+  color: var(--primry-color);
+}
+
+.section-tutorial_internal button {
+  background: var(--primry-color);
+}

@@ -2,6 +2,21 @@
 
 <!--- Key: Concept when you create a new section you can create block as many you want--->
 
+
+<!--- Import css file (Best Practice)--->
+ {{ 'sections-tutorial.css' | asset_url | stylesheet_tag }}
+
+
+<!--- Import java file (Best Practice)--->
+<script src="{{ 'sections-tutorial.js' | asset_url }}" async></script>
+
+<!--- You still need style if you want to change a specific area  --->
+<style>
+    #shopify-section-{{ section.id }} {
+     background-color: {{ section.settings.color_background_setting }};
+    }
+</style> 
+
 <!--- Define section schema --->
  {% schema %}
 {
@@ -261,33 +276,89 @@
             ],
             "limit": 4
         }
-    ],
+    ], // Present that your blocks should have 
     "presets": [{
+        // only product
         "name": "Sections Tutorial with product",
+        "settings": {
+            "text_setting": "Section Tutorial with product",
+        },
         "blocks": [
             {
                 "type": "section_product",
-                "settings": {
-                   
+                "settings": { 
+                   "product_block_setting": "singh-beer"
             }  
-        }       
+        },
+        {
+            "type": "section_product",
+            "settings": { 
+                   "product_block_setting": "singh-beer",
+                   "title": "Another Product",
+            }  
+        }
         ]
     },
-    {
+    {  // only collection
         "name": "Sections Tutorial with collection",
+        "settings": {
+            "text_setting": "Section Tutorial with collection",
+        },
+        "blocks": [
+            {
+                "type": "section_collection",
+                "settings": { 
+                   "collection_block_setting": "singh-beer"
+            }  
+        },
+        {
+            "type": "section_collection",
+            "settings": { 
+                   "collection_block_setting": "singh-beer",
+                   "title": "Another Collection",
+            }  
+        }
+        ]
     },
-    {
+    { // only product and collection
         "name": "Sections Tutorial Mixed",
+        "settings": {
+            "text_setting": "Section Tutorial Mixed",
+        },
+        "blocks": [
+            {
+                "type": "section_product",
+                "settings": { 
+                   "product_block_setting": "singh-beer"
+            }  
+        },
+        {
+            "type": "section_collection",
+            "settings": { 
+                   "collection_block_setting": "singh-beer",
+                   "title": "Another Collection",
+            }  
+        }
+        ]
     }],
 }
  {% endschema %}
 
 
- <!---------------------- Render HTML element ----------------------->
- <p> {{ section.index }}</p>
- <p> {{ section.id}}</p>
- <h2>Text Setting </h2>
- <p>{{ section.settings.text_setting}}</p>
+<!---------------------- Render HTML element ----------------------->
+<!---------------------- You can pass color attibute to css ----------------------->
+<div class="section-tutorial_internal" style="--primry-color: {{ section.settings.color_setting }}">
+
+<button class="button">button</button>
+
+    <!---- Conditional render ---->
+{% if request.design_mode %}
+    <p> This is a custom section</p>
+{% endif %}
+
+
+
+ <h1> Section Name: {{ section.settings.text_setting}}</h1>
  <h2>{{ section.settings.textarea_setting | newline_to_br}}</h2>
 
   <!--- Best Practice to use Richtext give you flexibility --->
@@ -482,3 +553,4 @@
       
    
   {% endfor %}
+</div>
