@@ -106,6 +106,18 @@
     },
     "sections_tutorials_4E734V": {
       "type": "sections-tutorials",
+      "blocks": {
+        "section_product_3r8mkR": {
+          "type": "section_product",
+          "settings": {
+            "product_block_setting": "singh-beer",
+            "title": "My Beer"
+          }
+        }
+      },
+      "block_order": [
+        "section_product_3r8mkR"
+      ],
       "name": "Sections Tutorial",
       "settings": {
         "text_setting": "This is my first setting",
@@ -116,7 +128,25 @@
         "range_setting": 50,
         "select_setting": "option1",
         "checkbox_setting": true,
-        "radio_setting": "option1"
+        "radio_setting": "option1",
+        "color_setting": "#000000",
+        "color_background_setting": "",
+        "video_url_setting": "",
+        "url_setting": "",
+        "html_setting": "",
+        "liquid_setting": "",
+        "product_setting": "",
+        "product_list_setting": [
+          "singh-beer"
+        ],
+        "collection_setting": "",
+        "collection_list_setting": [],
+        "page_setting": "",
+        "blog_setting": "",
+        "article_setting": "",
+        "link_list_setting": "",
+        "text_alignment_setting": "center",
+        "font_setting": "sans-serif"
       }
     }
   },
